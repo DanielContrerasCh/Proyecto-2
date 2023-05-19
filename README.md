@@ -11,6 +11,8 @@ Se espera que el código pueda llevar un registro eficiente del inventario de la
 ### Casos que harían que el programa dejara de funcionar
 - Los empleados tendrán solo un rol, es decir, no pueden ser carpinteros y vendedores.
 - Que escriban mal el tipo de mueble (que pongan una mayúscula o que la omitan).
+- Que registren valores negativos (número de muebles negativos o salario negativo, etc.)
+- Que creen combinaciones irreales de muebles (por ejemplo, una cama sin colchón)
 
 ### Consideraciones
 El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos
