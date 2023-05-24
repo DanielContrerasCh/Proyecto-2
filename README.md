@@ -17,7 +17,7 @@ Se espera que el código pueda llevar un registro eficiente del inventario de la
 ### Consideraciones
 El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos
 
-compilar con: "g++ empleado.h empresa.h main.cpp"
+compilar con: "g++ empleado.h mueble.h muebleria.h main.cpp"
 
 correr en linux: "/a.out"
 
