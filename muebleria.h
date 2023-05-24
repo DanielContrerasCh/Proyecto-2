@@ -34,8 +34,6 @@ public:
 };
 
 Muebleria::Muebleria() {
-    muebles = new Mueble[10];
-    empleados = new Empleado[10];
     numMuebles = 0;
     numEmpleados = 0;
 }
@@ -46,10 +44,12 @@ Muebleria::~Muebleria() {
 }
 
 void Muebleria::agregarMueble(Mueble* mueble) {
+
     muebles[numMuebles++] = *mueble;
 }
 
 void Muebleria::agregarEmpleado(Empleado* empleado) {
+
     empleados[numEmpleados++] = *empleado;
 }
 
