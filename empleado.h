@@ -12,25 +12,29 @@ using namespace std;
 
 class Empleado {
 
-    private:
-        string nombre;
-        int edad;
+private:
+    string nombre;
+    int edad;
 
-    public:
-        Empleado();
-        Empleado(string nom, int _edad);
+public:
+    Empleado(){}
+    Empleado(string nom, int _edad);
 
-        void setNombre(string _nombre);
-        void setEdad(int _edad);
+    void setNombre(string _nombre);
+    void setEdad(int _edad);
 
-        string getNombre();
-        int getEdad();
-/*        int salario();*/
+    string getNombre();
+    int getEdad();
+    void mostrarInfo();
 };
 
 Empleado::Empleado(string nom, int _edad) {
     nombre = nom;
     edad = _edad;
+}
+void Empleado::mostrarInfo() {
+    cout << "Nombre: " << getNombre() << endl;
+    cout << "Edad: " << getEdad() << endl;
 }
 void Empleado::setNombre(string _nombre) {
     nombre = _nombre;
@@ -47,48 +51,72 @@ int Empleado::getEdad() {
 
 class Carpintero : public Empleado{
 
-    private:
-        int mueblesHechos;
-        int pagoPorMuebles;
+private:
+    int mueblesHechos;
+    int pagoPorMuebles;
 
-    public:
-        Carpintero(string nom, int _edad, int muebles, int pago):Empleado(nom, _edad) {
-            mueblesHechos = muebles;
-            pagoPorMuebles = pago;
-        }
-        int salarioC();
+public:
+    Carpintero(){}
+    Carpintero(string nom, int _edad, int muebles, int _pagoPorMuebles):Empleado(nom, _edad) {
+        mueblesHechos = muebles;
+        pagoPorMuebles = 1500;
+    }
+    void setMueblesHechos(int muebles);
+    int getMueblesHechos();
+    int salarioC();
+    void mostrarInfo();
 };
-/*Carpintero::Carpintero(string nom, int _edad, int muebles, int pago):Empleado(nom, _edad) {
-    mueblesHechos = muebles;
-    pagoPorMuebles = pago;
-}*/
 
+void Carpintero::mostrarInfo() {
+    cout << "Nombre: " << getNombre() << endl;
+    cout << "Edad: " << getEdad() << endl;
+    cout << "Muebles hechos: " << getMueblesHechos() <<endl;
+    cout << "Salario: " << salarioC() << endl;
+}
 int Carpintero::salarioC() {
     int salarioMen = pagoPorMuebles * mueblesHechos;
     return salarioMen;
 }
+void Carpintero::setMueblesHechos(int _muebles) {
+    mueblesHechos = _muebles;
+}
+int Carpintero::getMueblesHechos() {
+    return mueblesHechos;
+}
 
 class Vendedor: public Empleado{
 
-    private:
-        int mueblesVendidos;
-        int pagoPorVentas;
+private:
+    int mueblesVendidos;
+    int pagoPorVentas;
 
-    public:
-        Vendedor(string nom, int _edad, int mueblesV, int pagoV):Empleado(nom, _edad){
-            mueblesVendidos = mueblesV;
-            pagoPorVentas = pagoV;
-        }
-        int salarioV();
+public:
+    Vendedor(){}
+    Vendedor(string nom, int _edad, int mueblesV, int _pagoPorVentas):Empleado(nom, _edad){
+        mueblesVendidos = mueblesV;
+        pagoPorVentas = 1000;
+    }
+    void setMueblesVendidos(int muebles);
+    int getMueblesVendidos();
+    int salarioV();
+    void mostrarInfo();
 
 };
-//Vendedor::Vendedor(string nom, int _edad, int mueblesV, int pagoV):Empleado(nom, _edad){
-//    mueblesVendidos = mueblesV;
-//    pagoPorVentas = pagoV;
-//}
 
+void Vendedor::mostrarInfo() {
+    cout << "Nombre: " << getNombre() << endl;
+    cout << "Edad: " << getEdad() << endl;
+    cout << "Muebles Vendidos: " << getMueblesVendidos() << endl;
+    cout << "salario: " << salarioV() << endl;
+}
 int Vendedor::salarioV() {
     int salarioMen = pagoPorVentas * mueblesVendidos;
     return salarioMen;
+}
+void Vendedor::setMueblesVendidos(int _muebles) {
+    mueblesVendidos = _muebles;
+}
+int Vendedor::getMueblesVendidos() {
+    return mueblesVendidos;
 }
 #endif //PROYECTO_2_EMPLEADO_H
