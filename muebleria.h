@@ -37,11 +37,11 @@ public:
         nombre = nom;
     }
 /*    ~Muebleria();*/
-    void agregarCama(Cama cama);
-    void agregarSilla(Silla silla);
-    void agregarMesa(Mesa mesa);
-    void agregarCarpintero(Carpintero carpintero);
-    void agregarVendedor(Vendedor vendedor);
+    void agregarMueble(Cama cama);
+    void agregarMueble(Silla silla);
+    void agregarMueble(Mesa mesa);
+    void agregarEmpleado(Carpintero carpintero);
+    void agregarEmpleado(Vendedor vendedor);
 
     void mostrarCama();
     void mostrarSilla();
@@ -50,23 +50,23 @@ public:
     void mostrarVendedor();
 };
 
-void Muebleria::agregarCama(Cama cama) {
+void Muebleria::agregarMueble(Cama cama) {
     camas[numCamas] = Cama(cama);
     numCamas++;
 }
-void Muebleria::agregarSilla(Silla silla) {
+void Muebleria::agregarMueble(Silla silla) {
     sillas[numSillas] = Silla(silla);
     numSillas++;
 }
-void Muebleria::agregarMesa(Mesa mesa) {
+void Muebleria::agregarMueble(Mesa mesa) {
     mesas[numMesas] = Mesa(mesa);
     numMesas++;
 }
-void Muebleria::agregarCarpintero(Carpintero carpintero) {
+void Muebleria::agregarEmpleado(Carpintero carpintero) {
     carpinteros[numCarpinteros] = Carpintero(carpintero);
     numCarpinteros++;
 }
-void Muebleria::agregarVendedor(Vendedor vendedor) {
+void Muebleria::agregarEmpleado(Vendedor vendedor) {
     vendedores[numVendedores] = Vendedor(vendedor);
     numVendedores++;
 }
