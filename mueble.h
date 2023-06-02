@@ -6,7 +6,7 @@
 #define PROYECTO_2_MUEBLE_H
 
 #include <iostream>
-#include <string>
+
 
 using namespace std;
 
@@ -29,7 +29,7 @@ public:
     float getAltura();
     string getMaterial();
     string getTipo();
-    void mostrarInfo();
+    virtual void mostrarInfo();
 };
 Mueble::Mueble(float p, float a, string mat, string _tipo) {
     precio = p;
@@ -37,12 +37,7 @@ Mueble::Mueble(float p, float a, string mat, string _tipo) {
     material = mat;
     tipo = _tipo;
 }
-void Mueble::mostrarInfo() {
-    cout << "Precio: " << getPrecio() << endl;
-    cout << "Altura: " << getAltura() << endl;
-    cout << "Material: " << getMaterial() << endl;
-    cout << "Tipo: " << getTipo() << endl;
-}
+void Mueble::mostrarInfo() {}
 void Mueble::setPrecio(float p) {
     precio = p;
 }
@@ -147,7 +142,7 @@ void Mesa::mostrarInfo() {
     cout << "Material: " << getMaterial() << endl;
     cout << "Tipo: " << getTipo() << endl;
     cout << "Patas: " << getNumPatas() << endl;
-    cout << "tamaño: "; getTamanio(); cout << " metros" << endl;
+    cout << "Tamanio: "; getTamanio(); cout << endl;
 }
 void Mesa::setNumPatas(int _numPatas){
     numPatas = _numPatas;

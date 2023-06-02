@@ -6,7 +6,7 @@
 #define PROYECTO_2_Muebleria_H
 
 #include <iostream>
-#include <string>
+
 #include "mueble.h"
 #include "empleado.h"
 
@@ -36,63 +36,82 @@ public:
         numVendedores = 0;
         nombre = nom;
     }
-/*    ~Muebleria();*/
-    void agregarMueble(Cama cama);
-    void agregarMueble(Silla silla);
-    void agregarMueble(Mesa mesa);
-    void agregarEmpleado(Carpintero carpintero);
-    void agregarEmpleado(Vendedor vendedor);
+    void setNombre(string _nombre);
+    void agregarMueble(float p, float a, string mat, string _tipo, bool colch, int caj, bool ca);
+    void agregarMueble(float p, float a, string mat, string _tipo, int _SnumPatas, bool _respaldo);
+    void agregarMueble(float p, float a, string mat, string _tipo, int _numPatas, float _ancho, float _largo);
+    void agregarEmpleado(string _nombre, int _edad, int muebles, string _tipoMueble);
+    void agregarEmpleado(string _nombre, int _edad, int mueblesV);
 
+    string getNombre();
     void mostrarCama();
     void mostrarSilla();
     void mostrarMesa();
+    void mostrarMuebles();
     void mostrarCarpintero();
     void mostrarVendedor();
+    void mostrarEmpleados();
 };
 
-void Muebleria::agregarMueble(Cama cama) {
-    camas[numCamas] = Cama(cama);
+void Muebleria::setNombre(string _nombre) {
+    nombre = _nombre;
+}
+void Muebleria::agregarMueble(float p, float a, string mat, string _tipo, bool colch, int caj, bool cab) {
+    camas[numCamas] = Cama(p, a, mat, _tipo, colch, caj, cab);
     numCamas++;
 }
-void Muebleria::agregarMueble(Silla silla) {
-    sillas[numSillas] = Silla(silla);
+void Muebleria::agregarMueble(float p, float a, string mat, string _tipo, int _SnumPatas, bool _respaldo) {
+    sillas[numSillas] = Silla(p, a, mat, _tipo, _SnumPatas, _respaldo);
     numSillas++;
 }
-void Muebleria::agregarMueble(Mesa mesa) {
-    mesas[numMesas] = Mesa(mesa);
+void Muebleria::agregarMueble(float p, float a, string mat, string _tipo, int _numPatas, float _ancho, float _largo) {
+    mesas[numMesas] = Mesa(p, a, mat, _tipo, _numPatas, _ancho, _largo);
     numMesas++;
 }
-void Muebleria::agregarEmpleado(Carpintero carpintero) {
-    carpinteros[numCarpinteros] = Carpintero(carpintero);
+void Muebleria::agregarEmpleado(string _nombre, int _edad, int muebles, string _tipoMueble) {
+    carpinteros[numCarpinteros] = Carpintero(_nombre, _edad, muebles, _tipoMueble);
     numCarpinteros++;
 }
-void Muebleria::agregarEmpleado(Vendedor vendedor) {
-    vendedores[numVendedores] = Vendedor(vendedor);
+void Muebleria::agregarEmpleado(string _nombre, int _edad, int mueblesV) {
+    vendedores[numVendedores] = Vendedor( _nombre, _edad, mueblesV);
     numVendedores++;
+}
+
+string Muebleria::getNombre() {
+    return nombre;
 }
 void Muebleria::mostrarCama() {
     for(int i = 0; i < numCamas; i++){
-        cout<<"Cama: "<<endl; camas[i].mostrarInfo();cout<<endl;
+        cout<<"Cama: "<<i+1<<endl; camas[i].mostrarInfo();cout<<endl;
     }
 }
 void Muebleria::mostrarSilla() {
     for(int i = 0; i < numSillas; i++){
-        cout<<"Silla: "<<endl; sillas[i].mostrarInfo();cout<<endl;
+        cout<<"Silla: "<<i+1<<endl; sillas[i].mostrarInfo();cout<<endl;
     }
 }
 void Muebleria::mostrarMesa() {
     for(int i = 0; i < numMesas; i++){
-        cout<<"Mesa: "<<endl; mesas[i].mostrarInfo();cout<<endl;
+        cout<<"Mesa: "<<i+1<<endl; mesas[i].mostrarInfo();cout<<endl;
     }
+}
+void Muebleria::mostrarMuebles() {
+    mostrarSilla();
+    mostrarCama();
+    mostrarMesa();
 }
 void Muebleria::mostrarCarpintero() {
     for(int i = 0; i < numCarpinteros; i++){
-        cout<<"Carpintero: "<<endl; carpinteros[i].mostrarInfo();cout<<endl;
+        cout<<"Carpintero: "<<i+1<<endl; carpinteros[i].mostrarInfo();cout<<endl;
     }
 }
 void Muebleria::mostrarVendedor() {
     for(int i = 0; i < numVendedores; i++){
-        cout<<"Vendedor: "<<endl; vendedores[i].mostrarInfo();cout<<endl;
+        cout<<"Vendedor: "<<i+1<<endl; vendedores[i].mostrarInfo();cout<<endl;
     }
+}
+void Muebleria::mostrarEmpleados(){
+    mostrarCarpintero();
+    mostrarVendedor();
 }
 #endif //PROYECTO_2_Muebleria_H

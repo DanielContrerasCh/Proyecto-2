@@ -6,7 +6,7 @@
 #define PROYECTO_2_EMPLEADO_H
 
 #include <iostream>
-#include <string>
+
 
 using namespace std;
 
@@ -18,24 +18,21 @@ private:
 
 public:
     Empleado(){}
-    Empleado(string nom, int _edad);
+    Empleado(string _nombre, int _edad);
 
     void setNombre(string _nombre);
     void setEdad(int _edad);
 
     string getNombre();
     int getEdad();
-    void mostrarInfo();
+    virtual void mostrarInfo();
 };
 
-Empleado::Empleado(string nom, int _edad) {
-    nombre = nom;
+Empleado::Empleado(string _nombre, int _edad) {
+    nombre = _nombre;
     edad = _edad;
 }
-void Empleado::mostrarInfo() {
-    cout << "Nombre: " << getNombre() << endl;
-    cout << "Edad: " << getEdad() << endl;
-}
+void Empleado::mostrarInfo() {}
 void Empleado::setNombre(string _nombre) {
     nombre = _nombre;
 }
@@ -54,15 +51,19 @@ class Carpintero : public Empleado{
 private:
     int mueblesHechos;
     int pagoPorMuebles;
+    string tipoMueble;
 
 public:
     Carpintero(){}
-    Carpintero(string nom, int _edad, int muebles, int _pagoPorMuebles):Empleado(nom, _edad) {
+    Carpintero(string _nombre, int _edad, int muebles, string _tipoMueble):Empleado(_nombre, _edad) {
         mueblesHechos = muebles;
+        tipoMueble = _tipoMueble;
         pagoPorMuebles = 1500;
     }
     void setMueblesHechos(int muebles);
+    void setTipoMuebles(string tipoMueble);
     int getMueblesHechos();
+    string getTipoMueble();
     int salarioC();
     void mostrarInfo();
 };
@@ -70,6 +71,7 @@ public:
 void Carpintero::mostrarInfo() {
     cout << "Nombre: " << getNombre() << endl;
     cout << "Edad: " << getEdad() << endl;
+    cout << "Muebles que hace: " << getTipoMueble() << endl;
     cout << "Muebles hechos: " << getMueblesHechos() <<endl;
     cout << "Salario: " << salarioC() << endl;
 }
@@ -77,22 +79,27 @@ int Carpintero::salarioC() {
     int salarioMen = pagoPorMuebles * mueblesHechos;
     return salarioMen;
 }
-void Carpintero::setMueblesHechos(int _muebles) {
-    mueblesHechos = _muebles;
+void Carpintero::setMueblesHechos(int muebles) {
+    mueblesHechos = muebles;
+}
+void Carpintero::setTipoMuebles(string _tipoMueble){
+    tipoMueble = _tipoMueble;
 }
 int Carpintero::getMueblesHechos() {
     return mueblesHechos;
 }
-
+string Carpintero::getTipoMueble(){
+    return tipoMueble;
+}
 class Vendedor: public Empleado{
 
 private:
     int mueblesVendidos;
-    int pagoPorVentas;
+    float pagoPorVentas;
 
 public:
     Vendedor(){}
-    Vendedor(string nom, int _edad, int mueblesV, int _pagoPorVentas):Empleado(nom, _edad){
+    Vendedor(string _nombre, int _edad, int mueblesV):Empleado(_nombre, _edad){
         mueblesVendidos = mueblesV;
         pagoPorVentas = 1000;
     }
@@ -106,11 +113,11 @@ public:
 void Vendedor::mostrarInfo() {
     cout << "Nombre: " << getNombre() << endl;
     cout << "Edad: " << getEdad() << endl;
-    cout << "Muebles Vendidos: " << getMueblesVendidos() << endl;
-    cout << "salario: " << salarioV() << endl;
+    cout << "Muebles vendidos: " << getMueblesVendidos() <<endl;
+    cout << "Salario: " << salarioV() << endl;
 }
 int Vendedor::salarioV() {
-    int salarioMen = pagoPorVentas * mueblesVendidos;
+    float salarioMen = pagoPorVentas * mueblesVendidos;
     return salarioMen;
 }
 void Vendedor::setMueblesVendidos(int _muebles) {
