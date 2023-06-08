@@ -53,9 +53,6 @@ public:
     void mostrarEmpleados();
 };
 
-void Muebleria::setNombre(string _nombre) {
-    nombre = _nombre;
-}
 void Muebleria::agregarMueble(float p, float a, string mat, string _tipo, bool colch, int caj, bool cab) {
     camas[numCamas] = Cama(p, a, mat, _tipo, colch, caj, cab);
     numCamas++;

@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
-#include "empleado.h"
-#include "mueble.h"
 #include "muebleria.h"
 
 using namespace std;
@@ -97,22 +95,6 @@ int main(){
                 muebleria.agregarMueble(price, height, material, type, patas, resp);
                 i++;
             }
-            else if(type == "mesa" || "Mesa"){
-                cout<<"Precio: "<<endl;
-                cin>>price;
-                cout<<"Altura: "<<endl;
-                cin>>height;
-                cout<<"Material: "<<endl;
-                cin>>material;
-                cout<<"Numero de patas: "<<endl;
-                cin>>patas;
-                cout<<"Ancho: "<<endl;
-                cin>>width;
-                cout<<"Largo: "<<endl;
-                cin>>length;
-                muebleria.agregarMueble(price, height, material, type, patas, width, length);
-                i++;
-            }
             else if(type == "cama" || type == "Cama"){
                 cout<<"Precio: "<<endl;
                 cin>>price;
@@ -130,7 +112,7 @@ int main(){
                 }
                 cout<<"Numero de cajones"<<endl;
                 cin>>numCajones;
-                cout<<"¿Tiene cabecera?"<<endl;
+                cout<<"¿Tiene cabecera? (y/n)"<<endl;
                 cin>>eleccion;
                 if(eleccion == "y" || eleccion == "Y"){
                     cb = true;
@@ -139,6 +121,22 @@ int main(){
                     cb = false;
                 }
                 muebleria.agregarMueble(price, height, material, type, c, numCajones, cb);
+                i++;
+            }
+            else if(type == "mesa" || type == "Mesa"){
+                cout<<"Precio: "<<endl;
+                cin>>price;
+                cout<<"Altura: "<<endl;
+                cin>>height;
+                cout<<"Material: "<<endl;
+                cin>>material;
+                cout<<"Numero de patas: "<<endl;
+                cin>>patas;
+                cout<<"Ancho: "<<endl;
+                cin>>width;
+                cout<<"Largo: "<<endl;
+                cin>>length;
+                muebleria.agregarMueble(price, height, material, type, patas, width, length);
                 i++;
             }
             else{
@@ -158,14 +156,125 @@ int main(){
         cout<<"\t2) Agregar otro mueble"<<endl;
         cout<<"\t3) Mostrar los muebles"<<endl;
         cout<<"\t4) Mostrar los empleados"<<endl;
+        cout<<"\t5) Salir"<<endl;
         cin>>eleccion2;
-        if (eleccion2 == 1){
-            muebleria.mostrarEmpleados();
+        if(eleccion2 == 1){
+            system("cls");
+            cout<<"Tipo (carpintero/vendedor): "<<endl;
+            cin>>type;
+            if(type == "carpintero" || type == "Carpintero"){
+                cout<<"Nombre: "<<endl;
+                cin>>nombreE;
+                cout<<"Edad: "<<endl;
+                cin>>age;
+                cout<<"Muebles que hace: "<<endl;
+                cin>>tipM;
+                cout<<"Muebles hechos: "<<endl;
+                cin>>cantMuebles;
+                muebleria.agregarEmpleado(nombreE, age,cantMuebles, tipM);
+            }
+            else if(type == "vendedor" || type =="Vendedor"){
+                cout<<"Nombre: "<<endl;
+                cin>>nombreE;
+                cout<<"Edad: "<<endl;
+                cin>>age;
+                cout<<"Muebles que ha vendido: "<<endl;
+                cin>>cantMuebles;
+                muebleria.agregarEmpleado(nombreE,age,cantMuebles);
+            }
+            else{
+                cout<<"Por favor escriba bien el tipo de empleado que desea agregar"<<endl;
+                system("pause");
+            }
         }
         else if(eleccion2 == 2){
-            muebleria.mostrarMuebles();
+            system("cls");
+            cout<<"Tipo de mueble (silla/mesa/cama):"<<endl;
+            cin>>type;
+            if(type == "silla" || type == "Silla"){
+                cout<<"Precio: "<<endl;
+                cin>>price;
+                cout<<"Altura: "<<endl;
+                cin>>height;
+                cout<<"Material: "<<endl;
+                cin>>material;
+                cout<<"Numero de patas: "<<endl;
+                cin>>patas;
+                cout<<"¿Tiene respaldo? (y/n)"<<endl;
+                cin>>eleccion;
+                if(eleccion == "y" || eleccion == "Y"){
+                    resp = true;
+                }
+                else if(eleccion == "n" || eleccion == "N"){
+                    resp = false;
+                }
+                muebleria.agregarMueble(price, height, material, type, patas, resp);
+            }
+            else if(type == "cama" || type == "Cama"){
+                cout<<"Precio: "<<endl;
+                cin>>price;
+                cout<<"Altura: "<<endl;
+                cin>>height;
+                cout<<"Material: "<<endl;
+                cin>>material;
+                cout<<"¿Tiene colchon? (y/n)"<<endl;
+                cin>>eleccion;
+                if(eleccion == "y" || eleccion == "Y"){
+                    c = true;
+                }
+                else if(eleccion == "n" || eleccion == "N"){
+                    c = false;
+                }
+                cout<<"Numero de cajones"<<endl;
+                cin>>numCajones;
+                cout<<"¿Tiene cabecera? (y/n)"<<endl;
+                cin>>eleccion;
+                if(eleccion == "y" || eleccion == "Y"){
+                    cb = true;
+                }
+                else if(eleccion == "n" || eleccion == "N"){
+                    cb = false;
+                }
+                muebleria.agregarMueble(price, height, material, type, c, numCajones, cb);
+            }
+            else if(type == "mesa" || type == "Mesa"){
+                cout<<"Precio: "<<endl;
+                cin>>price;
+                cout<<"Altura: "<<endl;
+                cin>>height;
+                cout<<"Material: "<<endl;
+                cin>>material;
+                cout<<"Numero de patas: "<<endl;
+                cin>>patas;
+                cout<<"Ancho: "<<endl;
+                cin>>width;
+                cout<<"Largo: "<<endl;
+                cin>>length;
+                muebleria.agregarMueble(price, height, material, type, patas, width, length);
+            }
+            else{
+                cout<<"Por favor escriba bien el tipo de mueble que desea agregar"<<endl;
+                system("pause");
+            }
         }
-        system("pause");
+        else if(eleccion2 == 3){
+            system("cls");
+            muebleria.mostrarMuebles();
+            system("pause");
+        }
+        else if (eleccion2 == 4){
+            system("cls");
+            muebleria.mostrarEmpleados();
+            system("pause");
+        }
+        else if(eleccion2 == 5){
+            menu3=false;
+        }
+        else{
+            system("cls");
+            cout<<"Opcion invalida, por favor elija una opcion valida"<<endl;
+            system("pause");
+        }
     }
 
 

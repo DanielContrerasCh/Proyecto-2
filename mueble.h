@@ -21,15 +21,11 @@ private:
 public:
     Mueble(){}
     Mueble(float p, float a, string mat, string _tipo);
-    void setPrecio(float p);
-    void setAltura(float a);
-    void setMaterial(string mat);
-    void setTipo(string _tipo);
     float getPrecio();
     float getAltura();
     string getMaterial();
     string getTipo();
-    virtual void mostrarInfo();
+    virtual void mostrarInfo()=0;
 };
 Mueble::Mueble(float p, float a, string mat, string _tipo) {
     precio = p;
@@ -38,18 +34,7 @@ Mueble::Mueble(float p, float a, string mat, string _tipo) {
     tipo = _tipo;
 }
 void Mueble::mostrarInfo() {}
-void Mueble::setPrecio(float p) {
-    precio = p;
-}
-void Mueble::setAltura(float a) {
-    altura = a;
-}
-void Mueble::setMaterial(string mat) {
-    material = mat;
-}
-void Mueble::setTipo(string _tipo) {
-    tipo = _tipo;
-}
+
 float Mueble::getAltura() {
     return altura;
 }
@@ -78,9 +63,6 @@ public:
         cajones = caj;
         cabecera = cab;
     };
-    void setColchon(bool colchon);
-    void setCajones(int cajones);
-    void setCabecera(bool cabecera);
     bool getColchon();
     int getCajones();
     bool getCabecera();
@@ -91,20 +73,10 @@ void Cama::mostrarInfo() {
     cout << "Precio: " << getPrecio() << endl;
     cout << "Altura: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
-    cout << "Tipo: " << getTipo() << endl;
     cout << "Colchon: " << getColchon() << endl;
     cout << "Cajones: " << getCajones() << endl;
     cout << "Cabecera: " << getCabecera() << endl;
 
-}
-void Cama::setColchon(bool _colchon) {
-    colchon = _colchon ;
-}
-void Cama::setCajones(int _cajones) {
-    cajones = _cajones;
-}
-void Cama::setCabecera(bool _cabecera) {
-    cabecera = _cabecera;
 }
 bool Cama::getColchon() {
     return colchon;
@@ -130,8 +102,6 @@ public:
         ancho = _ancho;
         largo = _largo;
     }
-    void setNumPatas(int _numPatas);
-    void setTamanio(float _ancho, float _largo);
     int getNumPatas();
     void getTamanio();
     void mostrarInfo();
@@ -140,17 +110,9 @@ void Mesa::mostrarInfo() {
     cout << "Precio: " << getPrecio() << endl;
     cout << "Altura: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
-    cout << "Tipo: " << getTipo() << endl;
     cout << "Patas: " << getNumPatas() << endl;
     cout << "Tamanio: "; getTamanio(); cout << endl;
 }
-void Mesa::setNumPatas(int _numPatas){
-    numPatas = _numPatas;
-};
-void Mesa::setTamanio(float _ancho, float _largo){
-    ancho = _ancho;
-    largo = _largo;
-};
 int Mesa::getNumPatas() {
     return numPatas;
 }
@@ -169,8 +131,6 @@ public:
         SnumPatas = _SnumPatas;
         respaldo = _respaldo;
     }
-    void setSnumPatas(int _SnumPatas);
-    void setRespaldo(bool _respaldo);
     int getSnumPatas();
     bool getRespaldo();
     void mostrarInfo();
@@ -179,15 +139,8 @@ void Silla::mostrarInfo() {
     cout << "Precio: " << getPrecio() << endl;
     cout << "Altura: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
-    cout << "Tipo: " << getTipo() << endl;
     cout << "Patas: " << getSnumPatas() << endl;
     cout << "Respaldo: " << getRespaldo() << endl;
-}
-void Silla::setSnumPatas(int _SnumPatas) {
-    SnumPatas = _SnumPatas;
-}
-void Silla::setRespaldo(bool _respaldo) {
-    respaldo = _respaldo;
 }
 int Silla::getSnumPatas() {
     return SnumPatas;

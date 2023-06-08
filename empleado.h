@@ -20,12 +20,9 @@ public:
     Empleado(){}
     Empleado(string _nombre, int _edad);
 
-    void setNombre(string _nombre);
-    void setEdad(int _edad);
-
     string getNombre();
     int getEdad();
-    virtual void mostrarInfo();
+    virtual void mostrarInfo() =0;
 };
 
 Empleado::Empleado(string _nombre, int _edad) {
@@ -33,12 +30,7 @@ Empleado::Empleado(string _nombre, int _edad) {
     edad = _edad;
 }
 void Empleado::mostrarInfo() {}
-void Empleado::setNombre(string _nombre) {
-    nombre = _nombre;
-}
-void Empleado::setEdad(int _edad) {
-    edad = _edad;
-}
+
 string Empleado::getNombre() {
     return nombre;
 }
@@ -60,8 +52,7 @@ public:
         tipoMueble = _tipoMueble;
         pagoPorMuebles = 1500;
     }
-    void setMueblesHechos(int muebles);
-    void setTipoMuebles(string tipoMueble);
+
     int getMueblesHechos();
     string getTipoMueble();
     int salarioC();
@@ -79,12 +70,8 @@ int Carpintero::salarioC() {
     int salarioMen = pagoPorMuebles * mueblesHechos;
     return salarioMen;
 }
-void Carpintero::setMueblesHechos(int muebles) {
-    mueblesHechos = muebles;
-}
-void Carpintero::setTipoMuebles(string _tipoMueble){
-    tipoMueble = _tipoMueble;
-}
+
+
 int Carpintero::getMueblesHechos() {
     return mueblesHechos;
 }
@@ -103,7 +90,6 @@ public:
         mueblesVendidos = mueblesV;
         pagoPorVentas = 1000;
     }
-    void setMueblesVendidos(int muebles);
     int getMueblesVendidos();
     int salarioV();
     void mostrarInfo();
@@ -119,9 +105,6 @@ void Vendedor::mostrarInfo() {
 int Vendedor::salarioV() {
     float salarioMen = pagoPorVentas * mueblesVendidos;
     return salarioMen;
-}
-void Vendedor::setMueblesVendidos(int _muebles) {
-    mueblesVendidos = _muebles;
 }
 int Vendedor::getMueblesVendidos() {
     return mueblesVendidos;
