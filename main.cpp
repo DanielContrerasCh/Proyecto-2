@@ -24,12 +24,12 @@ int main(){
     Muebleria muebleria(nombre);
 
     while(menu){
-        cout<<"\n\n"<<endl;
+        cout<<"\n\n\n\n"<<endl;
         cout<<"Bienvenido a la muebleria: "<<muebleria.getNombre();
         cout<<"\nEs momento de que introduzcas tus empleados (No puedes tener mas de mil): "<<endl;
         cout<<"¿Cuantos empleados deseas introducir ahora?"<<endl;
         cin>>num;
-        cout<<"\n\n"<<endl;
+        cout<<"\n\n\n\n"<<endl;
         for(int i=0; i<num;){
             cout<<"Empleado "<<i+1<<":"<<endl;
             cout<<"Tipo (carpintero/vendedor): "<<endl;
@@ -58,7 +58,7 @@ int main(){
             }
             else{
                 cout<<"Por favor escriba bien el tipo de empleado que desea agregar"<<endl;
-                sleep(1);
+
             }
             if(i==num){
                 menu=false;
@@ -70,7 +70,7 @@ int main(){
         cout<<"Ahora pasemos a crear los muebles que tendrá la muebleria (no pueden ser mas de mil): "<<endl;
         cout<<"¿Cuantos muebles desea introducir en este momento?"<<endl;
         cin>>num;
-        cout<<"\n\n"<<endl;
+        cout<<"\n\n\n\n"<<endl;
         for(int i=0;i<num;){
             cout<<"Mueble "<<i+1<<": "<<endl;
             cout<<"Tipo de mueble (silla/mesa/cama):"<<endl;
@@ -141,7 +141,7 @@ int main(){
             }
             else{
                 cout<<"Por favor escriba bien el tipo de mueble que desea agregar"<<endl;
-                sleep(1);
+
             }
             if(i==num){
                 menu2=false;
@@ -150,7 +150,7 @@ int main(){
         }
     }
     while(menu3){
-        cout<<"\n\n"<<endl;
+        cout<<"\n\n\n\n"<<endl;
         cout<<"Ahora, ¿Que desea hacer con su muebleria?"<<endl;
         cout<<"\t1) Agregar otro empleado"<<endl;
         cout<<"\t2) Agregar otro mueble"<<endl;
@@ -159,7 +159,7 @@ int main(){
         cout<<"\t5) Salir"<<endl;
         cin>>eleccion2;
         if(eleccion2 == 1){
-            cout<<"\n\n"<<endl;
+            cout<<"\n\n\n\n"<<endl;
             cout<<"Tipo (carpintero/vendedor): "<<endl;
             cin>>type;
             if(type == "carpintero" || type == "Carpintero"){
@@ -184,11 +184,11 @@ int main(){
             }
             else{
                 cout<<"Por favor escriba bien el tipo de empleado que desea agregar"<<endl;
-                sleep(1);
+
             }
         }
         else if(eleccion2 == 2){
-            cout<<"\n\n"<<endl;
+            cout<<"\n\n\n\n"<<endl;
             cout<<"Tipo de mueble (silla/mesa/cama):"<<endl;
             cin>>type;
             if(type == "silla" || type == "Silla"){
@@ -254,26 +254,25 @@ int main(){
             }
             else{
                 cout<<"Por favor escriba bien el tipo de mueble que desea agregar"<<endl;
-                sleep(1);
+
             }
         }
         else if(eleccion2 == 3){
-            cout<<"\n\n"<<endl;
+            cout<<"\n\n\n\n"<<endl;
             muebleria.mostrarMuebles();
-            sleep(1);
+
         }
         else if (eleccion2 == 4){
-            cout<<"\n\n"<<endl;
+            cout<<"\n\n\n\n"<<endl;
             muebleria.mostrarEmpleados();
-            sleep(1);
+
         }
         else if(eleccion2 == 5){
             menu3=false;
         }
         else{
-            cout<<"\n\n"<<endl;
+            cout<<"\n\n\n\n"<<endl;
             cout<<"Opcion invalida, por favor elija una opcion valida"<<endl;
-            sleep(1);
         }
     }
 
