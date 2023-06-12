@@ -71,7 +71,7 @@ public:
 
 void Cama::mostrarInfo() {
     cout << "Precio: " << getPrecio() << endl;
-    cout << "Altura: " << getAltura() << endl;
+    cout << "Altura en cm: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
     cout << "Colchon: " << getColchon() << endl;
     cout << "Cajones: " << getCajones() << endl;
@@ -108,7 +108,7 @@ public:
 };
 void Mesa::mostrarInfo() {
     cout << "Precio: " << getPrecio() << endl;
-    cout << "Altura: " << getAltura() << endl;
+    cout << "Altura en cm: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
     cout << "Patas: " << getNumPatas() << endl;
     cout << "Tamanio: "; getTamanio(); cout << endl;
@@ -137,7 +137,7 @@ public:
 };
 void Silla::mostrarInfo() {
     cout << "Precio: " << getPrecio() << endl;
-    cout << "Altura: " << getAltura() << endl;
+    cout << "Altura en cm: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
     cout << "Patas: " << getSnumPatas() << endl;
     cout << "Respaldo: " << getRespaldo() << endl;
