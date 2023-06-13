@@ -62,7 +62,7 @@ public:
 void Carpintero::mostrarInfo() {
     cout << "Nombre: " << getNombre() << endl;
     cout << "Edad: " << getEdad() << endl;
-    cout << "Muebles que hace: " << getTipoMueble() << endl;
+    cout << "Muebles que hace (sillas/camas/mesas): " << getTipoMueble() << endl;
     cout << "Muebles hechos: " << getMueblesHechos() <<endl;
     cout << "Salario: " << salarioC() << endl;
 }
