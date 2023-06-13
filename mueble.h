@@ -33,7 +33,6 @@ Mueble::Mueble(float p, float a, string mat, string _tipo) {
     material = mat;
     tipo = _tipo;
 }
-void Mueble::mostrarInfo() {}
 
 float Mueble::getAltura() {
     return altura;
@@ -56,7 +55,7 @@ private:
     bool cabecera;
 
 public:
-    //revisar el salto de línea
+
     Cama():Mueble(){}
     Cama(float p, float a, string mat, string _tipo, bool colch, int caj, bool cab):Mueble(p, a, mat, _tipo){
         colchon = colch;
@@ -70,6 +69,7 @@ public:
 };
 
 void Cama::mostrarInfo() {
+    cout<< getTipo() << endl;
     cout << "Precio: " << getPrecio() << endl;
     cout << "Altura en cm: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
@@ -107,6 +107,7 @@ public:
     void mostrarInfo();
 };
 void Mesa::mostrarInfo() {
+    cout<< getTipo() << endl;
     cout << "Precio: " << getPrecio() << endl;
     cout << "Altura en cm: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
@@ -136,6 +137,7 @@ public:
     void mostrarInfo();
 };
 void Silla::mostrarInfo() {
+    cout<< getTipo() << endl;
     cout << "Precio: " << getPrecio() << endl;
     cout << "Altura en cm: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;

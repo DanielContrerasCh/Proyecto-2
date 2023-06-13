@@ -15,23 +15,17 @@ class Muebleria {
 
 private:
     string nombre;
-    Cama* camas[lim];
-    Silla* sillas[lim];
-    Mesa* mesas[lim];
+    Mueble* muebles[lim];
     Carpintero* carpinteros[lim];
     Vendedor* vendedores[lim];
-    int numCamas;
-    int numSillas;
-    int numMesas;
+    int numMuebles;
     int numCarpinteros;
     int numVendedores;
 
 public:
     Muebleria(){}
     Muebleria(string nom){
-        numCamas = 0;
-        numSillas = 0;
-        numMesas = 0;
+        numMuebles = 0;
         numCarpinteros = 0;
         numVendedores = 0;
         nombre = nom;
@@ -44,9 +38,6 @@ public:
     void agregarEmpleado(string _nombre, int _edad, int mueblesV);
 
     string getNombre();
-    void mostrarCama();
-    void mostrarSilla();
-    void mostrarMesa();
     void mostrarMuebles();
     void mostrarCarpintero();
     void mostrarVendedor();
@@ -54,16 +45,16 @@ public:
 };
 
 void Muebleria::agregarMueble(float p, float a, string mat, string _tipo, bool colch, int caj, bool cab) {
-    camas[numCamas] = new Cama(p, a, mat, _tipo, colch, caj, cab);
-    numCamas++;
+    muebles[numMuebles] = new Cama(p, a, mat, _tipo, colch, caj, cab);
+    numMuebles++;
 }
 void Muebleria::agregarMueble(float p, float a, string mat, string _tipo, int _SnumPatas, bool _respaldo) {
-    sillas[numSillas] = new Silla(p, a, mat, _tipo, _SnumPatas, _respaldo);
-    numSillas++;
+    muebles[numMuebles] = new Silla(p, a, mat, _tipo, _SnumPatas, _respaldo);
+    numMuebles++;
 }
 void Muebleria::agregarMueble(float p, float a, string mat, string _tipo, int _numPatas, float _ancho, float _largo) {
-    mesas[numMesas] = new Mesa(p, a, mat, _tipo, _numPatas, _ancho, _largo);
-    numMesas++;
+    muebles[numMuebles] = new Mesa(p, a, mat, _tipo, _numPatas, _ancho, _largo);
+    numMuebles++;
 }
 void Muebleria::agregarEmpleado(string _nombre, int _edad, int muebles, string _tipoMueble) {
     carpinteros[numCarpinteros] = new Carpintero(_nombre, _edad, muebles, _tipoMueble);
@@ -77,7 +68,7 @@ void Muebleria::agregarEmpleado(string _nombre, int _edad, int mueblesV) {
 string Muebleria::getNombre() {
     return nombre;
 }
-void Muebleria::mostrarCama() {
+/*void Muebleria::mostrarCama() {
     for(int i = 0; i < numCamas; i++){
         cout<<"Cama: "<<i+1<<endl; camas[i]->mostrarInfo();cout<<endl;
     }
@@ -91,11 +82,12 @@ void Muebleria::mostrarMesa() {
     for(int i = 0; i < numMesas; i++){
         cout<<"Mesa: "<<i+1<<endl; mesas[i]->mostrarInfo();cout<<endl;
     }
-}
+}*/
 void Muebleria::mostrarMuebles() {
-    mostrarSilla();
-    mostrarCama();
-    mostrarMesa();
+    for(int i = 0; i <numMuebles; i++){
+        cout<<"Mueble: " << endl; muebles[i]->mostrarInfo(); cout<<endl;
+
+    }
 }
 void Muebleria::mostrarCarpintero() {
     for(int i = 0; i < numCarpinteros; i++){
