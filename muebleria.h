@@ -74,5 +74,6 @@ void Muebleria::mostrarMuebles() {
 void Muebleria::mostrarEmpleados(){
     for(int i = 0; i <numEmpleados; i++){
         cout<<"Mueble: " << endl; empleados[i]->mostrarInfo(); cout<<endl;
+    }
 }
 #endif //PROYECTO_2_Muebleria_H
