@@ -1,25 +1,28 @@
-//
-// Created by Microsoft Windows 11 on 18/05/2023.
-//
-
 #ifndef PROYECTO_2_MUEBLE_H
 #define PROYECTO_2_MUEBLE_H
 
 #include <iostream>
 
-
 using namespace std;
 
+/* Esta clase abstracta define el objeto padre Mueble, que tendrá tres clases hijas: Silla, Mesa y Cama
+Esta clase tiene 4 atributos que tendrá cualquier clase hija: precio, altura, material y tipo.
+
+Además, los métodos que componen a la clase son los que nos ayudan a acceder a dichos atributos.
+También tendrá un método virtual que será usado en las clases hijas con polimorfismo (mostrarInfo)
+*/
 class Mueble {
 
-private:
+private: // Atributos
     float precio;
     float altura;
     string material;
     string tipo;
 
-public:
-    Mueble(){}
+public: // Métodos
+    Mueble(){} // Constructor por default
+
+    // Constructor
     Mueble(float p, float a, string mat, string _tipo);
     float getPrecio();
     float getAltura();
@@ -27,6 +30,8 @@ public:
     string getTipo();
     virtual void mostrarInfo()=0;
 };
+
+// Definimos constructor
 Mueble::Mueble(float p, float a, string mat, string _tipo) {
     precio = p;
     altura = a;
@@ -34,29 +39,53 @@ Mueble::Mueble(float p, float a, string mat, string _tipo) {
     tipo = _tipo;
 }
 
+
+//  Getter para la altura del mueble
+// @param
+// @return altura en tipo float
 float Mueble::getAltura() {
     return altura;
 }
+
+// Getter para el precio del mueble
+// @param
+// @return precio en tipo float
 float Mueble::getPrecio() {
     return precio;
 }
+
+// Getter para el material del mueble
+// @param
+// @return material en tipo string
 string Mueble::getMaterial() {
     return material;
 }
+
+// Getter para el tipo del mueble
+// @param
+// @return tipo en string
 string Mueble::getTipo() {
     return tipo;
 }
 
+
+/* Clase hija Cama
+   Esta clase tiene como atributos: colcon, cajones y cabecera
+
+   Los métodos que la componen son los getters para acceder a sus atributos y mostrarInfo que
+   fue heredado de la clase padre
+*/
 class Cama : public Mueble{
 
-private:
+private: // Atributos
     bool colchon;
     int cajones;
     bool cabecera;
 
-public:
+public: // Métodos
+    Cama():Mueble(){} // Constructor por defecto
 
-    Cama():Mueble(){}
+    // Constructor
     Cama(float p, float a, string mat, string _tipo, bool colch, int caj, bool cab):Mueble(p, a, mat, _tipo){
         colchon = colch;
         cajones = caj;
@@ -68,16 +97,20 @@ public:
     void mostrarInfo();
 };
 
+// Método para el polimorfismo heredado de la clase padre, No recibe ningún parámetro y muestra la
+// información de la cama.
 void Cama::mostrarInfo() {
     cout<< getTipo() << endl;
     cout << "Precio: " << getPrecio() << endl;
-    cout << "Altura en cm: " << getAltura() << endl;
+    cout << "Altura: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
     cout << "Colchon: " << getColchon() << endl;
     cout << "Cajones: " << getCajones() << endl;
     cout << "Cabecera: " << getCabecera() << endl;
 
 }
+
+// Getters
 bool Cama::getColchon() {
     return colchon;
 }
@@ -88,6 +121,13 @@ bool Cama::getCabecera() {
     return cabecera;{}
 }
 
+
+/* Clase hija Mesa
+   Esta clase tiene como atributos: numPatas, ancho y largo
+
+   Los métodos que la componen son los getters para acceder a sus atributos y mostrarInfo que
+   fue heredado de la clase padre
+*/
 class Mesa : public Mueble{
 
 private:
@@ -106,14 +146,19 @@ public:
     void getTamanio();
     void mostrarInfo();
 };
+
+// Método para el polimorfismo heredado de la clase padre, No recibe ningún parámetro y muestra la
+// información de la mesa.
 void Mesa::mostrarInfo() {
     cout<< getTipo() << endl;
     cout << "Precio: " << getPrecio() << endl;
-    cout << "Altura en cm: " << getAltura() << endl;
+    cout << "Altura: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
     cout << "Patas: " << getNumPatas() << endl;
     cout << "Tamanio: "; getTamanio(); cout << endl;
 }
+
+// Getters
 int Mesa::getNumPatas() {
     return numPatas;
 }
@@ -121,6 +166,13 @@ void Mesa::getTamanio() {
     cout << ancho << "m x " << largo << "m" << endl;
 }
 
+
+/* Clase hija Silla
+   Esta clase tiene como atributos: SnumPatas y respaldo
+
+   Los métodos que la componen son los getters para acceder a sus atributos y mostrarInfo que
+   fue heredado de la clase padre
+*/
 class Silla : public Mueble{
 private:
     int SnumPatas;
@@ -136,14 +188,19 @@ public:
     bool getRespaldo();
     void mostrarInfo();
 };
+
+// Método para el polimorfismo heredado de la clase padre, No recibe ningún parámetro y muestra la
+// información de la silla.
 void Silla::mostrarInfo() {
     cout<< getTipo() << endl;
     cout << "Precio: " << getPrecio() << endl;
-    cout << "Altura en cm: " << getAltura() << endl;
+    cout << "Altura: " << getAltura() << endl;
     cout << "Material: " << getMaterial() << endl;
     cout << "Patas: " << getSnumPatas() << endl;
     cout << "Respaldo: " << getRespaldo() << endl;
 }
+
+// Getters
 int Silla::getSnumPatas() {
     return SnumPatas;
 }
